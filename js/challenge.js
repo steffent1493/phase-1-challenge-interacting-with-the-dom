@@ -72,38 +72,31 @@ submitButton.addEventListener("click", (e) => {
     commentList.innerHTML = newComment.value
 })
 
-
 function reset(){
 likedTimes = 0
 }
 
 setInterval(reset, 1000);
 
+
+const likedTimesList = document.getElementById("likedtimeslist")
+
 heartButton.addEventListener("click", (e) => {
     likedTimes += 1;
     const likedList = document.createElement('li')
     likedList.innerHTML = `${counterValue} has been liked ${likedTimes} times`
-    likedtimeslist.appendChild(likedList)  
+
+    if(likedTimes == 1) {
+        likedtimeslist.appendChild(likedList)  
+    }
+    else if (likedTimes > 1) { 
+        const lastItem = likedTimesList.lastChild
+        lastItem.innerHTML = `${counterValue} has been liked ${likedTimes} times`
+    }
+})
 
 })
 
-
-// heartButton.addEventListener("click", (e) => {
-//     likedTimes += 1;
-//     const likedList = document.createElement('li')
-//     likedList.innerHTML = `${counterValue} has been liked ${likedTimes} times`
-
-//     if(likedTimes == 1) {
-//         likedtimeslist.appendChild(likedList)  
-//     }
-//     else if (likedTimes > 1) () => { 
-//         likedList.innerHTML.split(' ')
-//         likedList.innerHTML.splice(4, 1, `${likedTimes}`)
-//         return likedList.innerHTML
-//     }
-// })
-
-})
 
 
 
